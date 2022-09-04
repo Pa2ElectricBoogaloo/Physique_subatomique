@@ -34,18 +34,55 @@ où $E_{i}$ désigne l'énergie de la particule $i$ dans le référenciel choisi
 
     L'intégration sur $\mathbf{p}_5$ est effectuée avec \eqref{conservation} et \eqref{E5} comme suit:
     \begin{align}
-        &\int \frac{\mathrm{d}^3 p_5}{(2 \pi)^3 2 E_5} (2 \pi)^4 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{\left(p_4+p_5\right)^2}\right) \delta(E_1 + E_2 - E_3 - E_4 - E_{5)} \nonumber\\
+        &\int \frac{\mathrm{d}^3 p_5}{(2 \pi)^3 2 E_5} (2 \pi)^4 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{\left(p_4+p_5\right)^2}\right) \delta(E_1 + E_2 - E_3 - E_4 - E_{5}) \nonumber\\
         %
-        &= 2 \pi\int \mathrm{d}^3p_5 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{(E_4+E_5)^2 - (\mathbf{p_4} + \mathbf{p_5})^2}\right) \dfrac{1}{\sqrt{m^2_5 + \mathbf{p}_5^2}} \delta(E_1 + E_2 - E_3 - E_4 - E_5)\nonumber\\
+        &= 2 \pi\int \mathrm{d}^3p_5 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{(E_4+E_5)^2 - (\mathbf{p_4} + \mathbf{p_5})^2}\right) \dfrac{1}{2\sqrt{m^2_5 + \mathbf{p}_5^2}} \delta(E_1 + E_2 - E_3 - E_4 - E_5)\nonumber\\
         %
-        &= 2 \pi \dfrac{\delta\left(m-\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right)}{\sqrt{m^2_5 + \mathbf{p}_4^2}} \delta\left(E_1 + E_2 - E_3 -\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right) \label{E5_done}
+        &= \pi \dfrac{\delta\left(m-\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right)}{\sqrt{m^2_5 + \mathbf{p}_4^2}} \delta\left(E_1 + E_2 - E_3 -\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right) \label{E5_done}
     \end{align}
 
-    Le premier $\delta$ de \eqref{E5_done} peut être simplifié en calculant les racines de son argument. On a 
+    Le premier $\delta$ de \eqref{E5_done} peut être simplifié en calculant l'unique racine positive $p$ de son argument. On a 
     \begin{align*}
-        0 = m-\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}
-        \iff (m^2 - m^2_4 - \mathbf{p}_4^2 - m^2_5 - \mathbf{p}_4^2)^2=  (m^2_5 + \mathbf{p}_4^2)(m^2_5 + \mathbf{p}_4^2)
+        &0 = m-\sqrt{m^2_4 + p^2}-\sqrt{m^2_5 + p^2}\\
+        &\implies (m^2 - m^2_4 - p^2 - m^2_5 - p^2)^2=  4(m^2_4 + p^2)(m^2_5 + p^2)\\
+        &\implies (m^2 - m^2_4 - m^2_5)^2 + 4p^4 + 4 (-m^2 + m_5^2+m_4^2) p^2 = 4m^2_4 m^2_5 + 4p^2 m^2_5 + 4 m^2_4 p^2  + 4p^4\\
+        &\implies 4 m^2p^2 = (m^2 - m^2_4 - m^2_5)^2 - 4 m_4^2 m^2_5 = (m^2 - m^2_4 - m^2_5 - 2 m_4 m_5) (m^2 - m^2_4 - m^2_5 + 2 m_4 m_5)\\
+        &\implies p = \dfrac{1}{4m}\sqrt{(m^2 - [m_4 + m_5]^2) (m^2 + [m_4 + m_5]^2)}.
     \end{align*}
+    Le $\delta$ peut être simplifié davantage de la manière suivante: 
+    \begin{align}
+        \delta\left(m-\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right) &= \delta\left(\sqrt{\mathbf{p}_4^2} - p\right) \left| \dfrac{p}{\sqrt{m^2_4 + p^2}}+\dfrac{p}{\sqrt{m^2_5 + p^2}}\right|^{-1}\nonumber\\
+        &= \delta\left(\sqrt{\mathbf{p}_4^2} - p\right) \left|\dfrac{p}{m -\sqrt{m^2_5 + p^2}}+\dfrac{p}{\sqrt{m^2_5 + p^2}}\right|^{-1}\nonumber\\
+        &= \delta\left(\sqrt{\mathbf{p}_4^2} - p\right) \dfrac{\sqrt{m^2_4 + p^2} \sqrt{m^2_5 + p^2}}{m p} \label{delta1}. 
+    \end{align}
+    Il est maintenant possible d'évaluer l'intégrale sur $\mathbf{p}_4$ en utilisant \eqref{E5}, \eqref{E5_done} et \eqref{delta1}. On trouve
+    \begin{align}
+        &\pi \int \frac{\mathrm{d}^3 p_4}{(2 \pi)^3 2 E_4}  \delta\left(\sqrt{\mathbf{p}_4^2} - p\right) \dfrac{\sqrt{m^2_4 + p^2} \sqrt{m^2_5 + p^2}}{m p \sqrt{m^2_5 + \mathbf{p}_4^2}} \delta\left(E_1 + E_2 - E_3 -\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right)\nonumber\\
+        &= \dfrac{1}{(2\pi)^2} \int \dd \Omega_4\int  \dd\sqrt{\mathbf{p}_4^2}  \mathbf{p}_4^2 \delta\left(\sqrt{\mathbf{p}_4^2} - p\right) \dfrac{\sqrt{m^2_4 + p^2} \sqrt{m^2_5 + p^2}}{m p \sqrt{m^2_5 + \mathbf{p}_4^2}\sqrt{m^2_4 + \mathbf{p}_4^2}} \delta\left(E_1 + E_2 - E_3 - m\right)\nonumber\\
+        &= \dfrac{1}{\pi} \dfrac{p^2 \sqrt{m^2_4 + p^2} \sqrt{m^2_5 + p^2}}{m p \sqrt{m^2_5 + p^2}\sqrt{m^2_4 + p^2}} \delta\left(E_1 + E_2 - E_3 - m\right)\nonumber\\
+        &= \dfrac{1}{\pi} \dfrac{p}{m} \delta\left(E_1 + E_2 - E_3 - m\right). \label{E4_done}
+    \end{align}
+    où $\dd \Omega_4$ est l'élément d'angle solide de $\mathrm{d}^3 p_4$ en coordonnées sphériques.
+
+    Afin de simplifier l'intégrale sur $\dd p_3$, on souhaite changer de système de référence. Pour ce faire, on réécrit le résultat \eqref{E4_done} de manière covariante en exploitant le fait que dans le système utilisé jusqu'ici $\mathbf{p}_1 + \mathbf{p}_2 -\mathbf{p}_3 = \mathbf{0}$. On a l'invariant
+    \begin{align*}
+        (p_1+p_2-p_3)^2 = (E_1 + E_2 - E_3)^2 - (\mathbf{p}_1 + \mathbf{p}_2 -\mathbf{p}_3)^2
+    \end{align*}
+    et l'argument du $\delta$ de \eqref{E4_done} prend la forme covariante
+    \begin{align*}
+         E_1 + E_2 - E_3- m = \sqrt{(p_1+p_2-p_3)^2}-m.
+    \end{align*}
+    Comme cette expression est valide dans tous les référenciels inertiels, on l'utilise pour passer au référenciel où $\mathbf{p}_1 + \mathbf{p}_2 = \mathbf{0}$. Dans ce référenciel, le radicande de l'argument du $\delta$ devient 
+    \begin{align*}
+        (p_1+p_2-p_3)^2 &= (p_1+p_2)^2 + p_3^2 - 2(E_3 (E_1 + E_2) - \mathbf{p}_3\cdot (\mathbf{p}_1 + \mathbf{p}_2))\\
+        &= s + m_3^2 - 2\sqrt{m_3^2 + \mathbf{p}_3^2} \sqrt{m_3^2 + (\mathbf{p}_1 + \mathbf{p}_2)^2}\\
+        &= s + m_3^2 - 2\sqrt{m_3^2 + \mathbf{p}_3^2} \sqrt{s}
+    \end{align*}
+    Encore une fois, on peut simplifier l'intégration sur le $\delta$ en trouvant d'abord la racine positive $q$ de son argument. On a 
+    \begin{align*}
+        &0 = \sqrt{s + m_3^2 - 2\sqrt{m_3^2 + q^2} \sqrt{s}}- m \implies q = \sqrt{\left(\dfrac{s + m_3^2-m^2}{2\sqrt{s}}\right)^2 - m_3^2}
+    \end{align*}
+    
     %En prenant le carré lorentzien de chaque côté, on trouve 
     %\begin{align}
     %    (p_1+p_2-p_3)^2 = (p_4+p_5)^2
