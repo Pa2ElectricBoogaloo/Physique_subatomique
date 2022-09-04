@@ -1,0 +1,53 @@
+Considerons la desintegration de deux particules de quadri-impulsions $p_1$ et $p_2$ en trois particules de quadri-impulsions $p_3$, $p_4$ et $p_5$. On note les masses respective de ce trois dernières particules $m_3$, $m_4$ et $m_5$. De plus, on a les masses invariantes $s = (p_1 + p_2)^2$ et $m = \sqrt{(p_4 + p_5)^2}$. La densité d'états finaux $\rho(m)$ avec une masse invariante $m$ fixe respectant la conservation de l'énergie impulsion est donnée par 
+\begin{align}
+    \rho(m)=\int \frac{\mathrm{d}^3 p_3}{(2 \pi)^3 2 E_3} \frac{\mathrm{d}^3 p_4}{(2 \pi)^3 2 E_4} \frac{\mathrm{d}^3 p_5}{(2 \pi)^3 2 E_5}(2 \pi)^4 \delta^4\left(p_1+p_2-p_3-p_4-p_5\right) \delta\left(m-\sqrt{\left(p_4+p_5\right)^2}\right) \label{rho}
+\end{align}
+où $E_{i}$ désigne l'énergie de la particule $i$ dans le référenciel choisit.
+
+\begin{enumerate}
+    \item[A.] Afin de trouver la valeur maximale prise par $m$ en fonction de $s, \ m_3$ on se place dans le système de reference où $\mathbf{p}_1 + \mathbf{p}_2 = \mathbf{0}$. La conservation de l'énergie s'écrit alors 
+    \begin{align*}
+        \sqrt{s} = \sqrt{m_3^2 + \mathbf{p}_3^2} + \sqrt{m^2 + (\mathbf{p}_4 + \mathbf{p}_5)^2} 
+    \end{align*}
+    en isolant $m$, on trouve 
+    \begin{align*}
+        m^2 = \left(\sqrt{s} - \sqrt{m_3^2 + \mathbf{p}_3^2}\right)^2 - (\mathbf{p}_4 + \mathbf{p}_5)^2
+    \end{align*}
+    La conservation de la quantité de mouvement impose que $\mathbf{p}_3 + \mathbf{p}_4 + \mathbf{p}_5= \mathbf{0}$ et on a 
+    \begin{align}
+        m^2 = \left(\sqrt{s} - \sqrt{m_3^2 + \mathbf{p}_3^2}\right)^2 - \mathbf{p}_3^2 = s + m_3^2 - 2\sqrt{s}\sqrt{m_3^2 + \mathbf{p}_3^2}. \label{m2}
+    \end{align}
+    La valeur maximale de $m$ est atteinte pour $\mathbf{p}_3 = 0$ et vaut $m = \sqrt{s + m_3^2}$. Cette maximisation correspond à une minimisation de la conversion de l'énergie initiale en énergie cinétique au profit de l'énergie de masse. 
+    \item[B.] Avec \eqref{m2}, on voit que $m = 0$ est toujours une possibilité associée à 
+    \begin{align*}
+        \mathbf{p}_3^2 = \dfrac{1}{2s}(s + m_3^2)^2 - m_3^2 = \dfrac{1}{2s}(s^2 + m_3^4) \ge 0 \quad\forall s,\ m_3
+    \end{align*}
+    \item[C.] Afin d'évaluer \eqref{rho}, on se place d'abord dans le référentiel où $\mathbf{p}_1+\mathbf{p}_2-\mathbf{p}_3=\mathbf{0}$. La contrainte de conservation de l'énergie-impulsion devient
+    \begin{align}
+        \delta^4(p_1+p_2-p_3 -p_4-p_5) &= \delta(E_1 + E_2 - E_3 - E_4 - E_5) \delta^3(\mathbf{p}_1+\mathbf{p}_2-\mathbf{p}_3 -\mathbf{p}_4-\mathbf{p}_5) \nonumber\\
+        &= \delta(E_1 + E_2 - E_3 - E_4 - E_5) \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \label{conservation}. 
+    \end{align} 
+    Les masses $m_4$ et $m_5$ permettent d'écrire les énergies $E_4$ et $E_5$ en fonction de $\mathbf{p}_4$ et $\mathbf{p}_5$. On a 
+    \begin{equation}
+        E_4 = \sqrt{m^2_4 + \mathbf{p}_4^2}  \quad \& \quad E_5 = \sqrt{m^2_5 + \mathbf{p}_5^2} \label{E5}. 
+    \end{equation}
+
+    L'intégration sur $\mathbf{p}_5$ est effectuée avec \eqref{conservation} et \eqref{E5} comme suit:
+    \begin{align*}
+        &\int \frac{\mathrm{d}^3 p_5}{(2 \pi)^3 2 E_5} (2 \pi)^4 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{\left(p_4+p_5\right)^2}\right) \delta(E_1 + E_2 - E_3 - E_4 - E_5)\\
+        %
+        &= 2 \pi\int \mathrm{d}^3p_5 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{(E_4+E_5)^2 - (\mathbf{p_4} + \mathbf{p_5})^2}\right) \dfrac{1}{\sqrt{m^2_5 + \mathbf{p}_5^2}} \delta(E_1 + E_2 - E_3 - E_4 - E_5)\\
+        %
+        &= 2 \pi \dfrac{\delta\left(m-\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right)}{\sqrt{m^2_5 + \mathbf{p}_4^2}} \delta\left(E_1 + E_2 - E_3 -\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right) \label{E5_done}
+    \end{align*}
+    Le premier $\delta$ de \eqref{E5_done} peut être simplifié en calculant les racines de son argument. On a 
+    \begin{align*}
+        0 = m-\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}
+        \iff (m^2 - m^2_4 - \mathbf{p}_4^2 - m^2_5 - \mathbf{p}_4^2)^2=  (m^2_5 + \mathbf{p}_4^2)(m^2_5 + \mathbf{p}_4^2)
+    \end{align*}
+    %En prenant le carré lorentzien de chaque côté, on trouve 
+    %\begin{align}
+    %    (p_1+p_2-p_3)^2 = (p_4+p_5)^2
+    %\end{align}
+    \item[D.]
+\end{enumerate}
