@@ -33,13 +33,14 @@ où $E_{i}$ désigne l'énergie de la particule $i$ dans le référenciel choisi
     \end{equation}
 
     L'intégration sur $\mathbf{p}_5$ est effectuée avec \eqref{conservation} et \eqref{E5} comme suit:
-    \begin{align*}
-        &\int \frac{\mathrm{d}^3 p_5}{(2 \pi)^3 2 E_5} (2 \pi)^4 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{\left(p_4+p_5\right)^2}\right) \delta(E_1 + E_2 - E_3 - E_4 - E_5)\\
+    \begin{align}
+        &\int \frac{\mathrm{d}^3 p_5}{(2 \pi)^3 2 E_5} (2 \pi)^4 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{\left(p_4+p_5\right)^2}\right) \delta(E_1 + E_2 - E_3 - E_4 - E_{5)} \nonumber\\
         %
-        &= 2 \pi\int \mathrm{d}^3p_5 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{(E_4+E_5)^2 - (\mathbf{p_4} + \mathbf{p_5})^2}\right) \dfrac{1}{\sqrt{m^2_5 + \mathbf{p}_5^2}} \delta(E_1 + E_2 - E_3 - E_4 - E_5)\\
+        &= 2 \pi\int \mathrm{d}^3p_5 \delta^3(-\mathbf{p}_4-\mathbf{p}_5) \delta\left(m-\sqrt{(E_4+E_5)^2 - (\mathbf{p_4} + \mathbf{p_5})^2}\right) \dfrac{1}{\sqrt{m^2_5 + \mathbf{p}_5^2}} \delta(E_1 + E_2 - E_3 - E_4 - E_5)\nonumber\\
         %
         &= 2 \pi \dfrac{\delta\left(m-\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right)}{\sqrt{m^2_5 + \mathbf{p}_4^2}} \delta\left(E_1 + E_2 - E_3 -\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}\right) \label{E5_done}
-    \end{align*}
+    \end{align}
+
     Le premier $\delta$ de \eqref{E5_done} peut être simplifié en calculant les racines de son argument. On a 
     \begin{align*}
         0 = m-\sqrt{m^2_4 + \mathbf{p}_4^2}-\sqrt{m^2_5 + \mathbf{p}_4^2}
