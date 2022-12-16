@@ -1,0 +1,134 @@
+\footnotesize{
+\begin{alphaparts}
+    \item On s'intéresse à la diffusion d'un électron de masse $m$ sur un muon de masse $M$ produite par le couplage minimal de leur champs de Dirac avec le même champ électromagnétique. Dans les deux cas, la constante de couplage est la même charge élémentaire $e$. La section efficace de ce processus peut êter approximée au deuxième ordre en $e$ dont l'unique diagramme de Feynman ets représenté à la fig.\ref{feynman}
+    \begin{figure}[h!]
+    \centering
+        \tikzset{
+            particle/.style={thick,draw=blue, postaction={decorate},
+            decoration={markings,mark=at position .6 with {\arrow[blue]{triangle 45}}}},
+            gluon/.style={decorate, draw=black,
+            decoration={coil,aspect=0}}
+            }
+    \resizebox{10cm}{5cm}{%
+    \begin{tikzpicture}[node distance=1cm and 1.5cm, scale = 2]
+    \coordinate[label=left:$e^{-}_3$] (e1);
+    \coordinate[below right=of e1] (aux1);
+    \coordinate[right=1.25cm of aux1] (aux2);
+    \coordinate[above right=of aux2,label=right:$\mu^{-}_4$] (e2);
+    
+    \coordinate[below left=of aux1,label=left:$e^{-}_1$] (e3);
+    \coordinate[below right=of aux2,label=right:$\mu^{-}_2$] (e4);
+    
+
+
+    \draw[particle] (aux1) -- (e1);
+    \draw[particle] (e3) -- (aux1);
+    \draw[particle] (aux2) -- (e2);
+    \draw[particle] (e4) -- (aux2);
+    \draw[gluon] (aux1) -- node[label=below:$\gamma$] {} (aux2);
+    \draw[gluon] (aux1) -- node[label=above:\tiny $-i \frac{g_{\mu v}}{q^2+i 0^{+}}$] {} (aux2);
+    
+
+    \filldraw[black] (aux1) circle (0.5pt) node[anchor=east]{\tiny $-i e\left(\gamma^\mu\right)_{\beta \alpha}$};
+    \filldraw[black] (aux2) circle (0.5pt) node[anchor=west]{\tiny $-i e\left(\gamma^\nu\right)_{\gamma \delta}$};
+    \filldraw[black] (e1) circle (0.5pt) node[anchor=west]{\tiny $\overline{u}_{\beta, p_3, s_3}$};
+    \filldraw[black] (e2) circle (0.5pt) node[anchor=east]{\tiny $\overline{u}_{\gamma, p_4, s_4}$};
+    \filldraw[black] (e3) circle (0.5pt) node[anchor=west]{\tiny $u_{\alpha, p_1, s_1}$};
+    \filldraw[black] (e4) circle (0.5pt) node[anchor=east]{\tiny $u_{\delta, p_2, s_2}$};
+    \end{tikzpicture}
+    }
+        
+    \caption{
+        \footnotesize Diagramme de Feynman donnant l'amplitude de diffusion electron-muon \label{feynman} gouvernée par l'électrodynamique quantique au deuxième ordre en $e$. Les indices $\beta, \gamma$ sont des indices de lignes alors que les indices $\alpha, \delta$ sont des indices de colonnes. Ils indiquent la nature de la multiplication des deux objects partageant un indice.}
+    \end{figure}
+    Les fermions initiaux (resp. finaux) identifiés par les indices $1$ et $2$ (resp. $3$ et $4$) correspondent aux quadri-impulsions $p_1$, $p_2$ (resp. $p_3$, $p_4$) et aux spins $s_1$, $s_2$ (resp. $s_3$, $s_4$). Les spineurs qui les décrivent sont notés $u_{p_1, s_1}$, $u_{p_2, s_2}$ (resp. $\overline{u}_{p_3, s_3}$, $\overline{u}_{p_4, s_4}$). Comme il est question d'un processus de deuxième ordre, le diagramme comporte deux vertex associés aux facteurs $-ie (\gamma^\mu) \delta(p_1 - q - p_3)$ (gauche) et $-ie (\gamma^\mu) \delta(p_2 + q - p_4)$ (droite). La seule ligne interne du diagramme correspond à un photon virtuel $\gamma$ associé au propagateur $-i g_{\mu \nu}/(q^2 + i 0^+)$. Conformément aux règles de Feynman, ces différents éléments se combinent pour former la quantité 
+    \begin{align}
+        i \mathcal{M'} &= \int \dd q \ \overline{u}_{p_3, s_3} \left[-ie (\gamma^\mu) \delta(p_1 - q - p_3)\right] u_{p_1, s_1}  \left[\dfrac{-i g_{\mu \nu}}{q^2 + i 0^+}\right] \overline{u}_{p_4, s_4} \left[-ie (\gamma^\nu) \delta(p_2 + q - p_4)\right] u_{p_2, s_2}  \nonumber\\
+        &=  i e^2 \left[\overline{u}_{p_3, s_3} (\gamma^\mu) u_{p_1, s_1}\right]   \left[\dfrac{g_{\mu \nu}}{(p_1 - p_3)^2}\right] \left[ \overline{u}_{p_4, s_4} (\gamma^\nu) u_{p_2, s_2} \right] \delta(p_1 + p_2 - p_3 - p_4) \nonumber 
+    \end{align}
+    qui correspond à l'amplitude de diffusion 
+    \begin{align}
+        \mathcal{M} =  \left[\overline{u}_{p_3, s_3} (\gamma^\mu) u_{p_1, s_1}\right]   \left[\dfrac{4 \pi \alpha g_{\mu \nu}}{(p_1 - p_3)^2}\right] \left[ \overline{u}_{p_4, s_4} (\gamma^\nu) u_{p_2, s_2} \right] \label{Amplitude}
+    \end{align}
+    avec $\alpha = e^2/(4 \pi)$.
+    
+    \item Afin d'obtenir le carré de l'amplitude de diffusion \eqref{Amplitude} moyenné sur les spins $s_1, s_2$ et sommée sur les spins $s_3, s_4$, on utilise la formule de Casimir qui est basée sur la relation 
+    \begin{align}
+        \sum_{s=1,2}u_{\mathrm{p}, s}\bar{u}_{\mathrm{p}, s} &= \sum_{s=1,2}u_{\mathrm{p}, s}u_{\mathrm{p}, s}^\dagger \gamma^0 = \dfrac{1}{E_\mathbf{p} + m}\sum_{s=1,2} (p_\nu \gamma^\nu + m) u_{s}u_{\mathrm{s}}^\dagger (p_\mu \gamma^\mu + m)^\dagger \gamma^0\nonumber \\
+        &= \dfrac{1}{E_\mathbf{p} + m}\sum_{s=1,2} (p_\nu \gamma^\nu + m) u_{s}u_{\mathrm{s}}^\dagger \gamma^0 (p_\mu \gamma^\mu + m)\nonumber \\
+        &= \dfrac{1}{E_\mathbf{p} + m}(p_\nu \gamma^\nu + m)\dfrac{1 + \gamma^0}{2} (p_\mu \gamma^\mu + m)\nonumber \\
+        &= \dfrac{1}{2E_\mathbf{p} + 2m}\left[\left(\underbrace{p_\nu p_\mu \dfrac{\gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu}{2}}_{m^2} + 2 m p_\nu \gamma^\nu + m^2\right) 
+        +\left(p_\nu \gamma^\nu + m\right)\left(2 p_\mu g^{\mu 0} -(p_\mu \gamma^\mu  - m)\gamma^0\right)\right]\nonumber\\
+        &= \dfrac{1}{2E_\mathbf{p} + 2m}\left[2m\left(p_\nu \gamma^\nu + m\right) 
+        +2E_\mathbf{p}\left(p_\nu \gamma^\nu + m^2\right)\right]\nonumber\\
+        &= \dfrac{1}{2E_\mathbf{p} + 2m}\left[2m\left(p_\nu \gamma^\nu + m\right) 
+        +2E_\mathbf{p}\left(p_\nu \gamma^\nu + m^2\right)\right] = p_\nu \gamma^\nu + m \label{relation}
+    \end{align}
+    dans le cas de spineurs électronique (la masse $m$ est remplacée par $M$ pour des spineurs muoniques).
+    \item L'amplitude carré total pour un processus de difussion muon-électron sans égard aux spins finaux $s_3$, $s_4$ et moyennée sur les $4$ états de spin initiaux $s_1$, $s_2$ est donné par \eqref{Amplitude} et vaut
+    \begin{align}
+        |\mathcal{M}|_{\text{tot}}^2 &= \dfrac{1}{4} \sum_{s_1, s_2, s_3, s_4}\left[\overline{u}_{p_3, s_3} (\gamma^\mu) u_{p_1, s_1}\right]   \left[\dfrac{4 \pi \alpha g_{\mu \nu}}{(p_1 - p_3)^2}\right] \left[ \overline{u}_{p_4, s_4} (\gamma^\mu) u_{p_2, s_2} \right] \left[ \overline{u}_{p_4, s_4} (\gamma^\mu) u_{p_2, s_2} \right]^\dagger  \left[\dfrac{4 \pi \alpha g_{\mu \nu}}{(p_1 - p_3)^2}\right]^\dagger \left[\overline{u}_{p_3, s_3} (\gamma^\mu) u_{p_1, s_1}\right]^\dagger \nonumber\\
+        &= 4\left[\dfrac{\pi \alpha }{(p_1 - p_3)^2}\right]^2 g_{\mu \nu} g_{\sigma \rho} \sum_{s_1, s_2, s_3, s_4}\left[\overline{u}_{p_3, s_3} (\gamma^\mu) u_{p_1, s_1}\right]  \left[ \overline{u}_{p_4, s_4} (\gamma^\nu) u_{p_2, s_2} \right]  \left[ \overline{u}_{p_2, s_2} (\gamma^\rho) u_{p_{4}, s_{4}} \right] \left[\overline{u}_{p_1, s_1} (\gamma^\sigma) u_{p_{3}, s_{3}}\right]. \label{Amp2}
+    \end{align} 
+    où on a utilisé
+    \begin{align}
+        \left[  \overline{u}_{p', s'} (\gamma^\rho) u_{p, s} \right]^\dagger =   u_{p, s}^\dagger (\gamma^\rho)^\dagger \overline{u}_{p', s'}^\dagger  =  u_{p, s}^\dagger \gamma^0 (\gamma^\rho) \gamma^0  (u_{p', s'}^\dagger\gamma^0)^\dagger  = \bar{u}_{p, s} (\gamma^\rho)  u_{p', s'}.
+    \end{align}
+    Pour effectuer la somme sur $s_2$ et $s_{4}$ dans \eqref{Amp2}, on invoque la formule de Casimir 
+    \begin{align}
+        \sum_{s_2, s_{4}}  \left[ \overline{u}_{p_4, s_4} (\gamma^\nu) u_{p_2, s_2} \right]  \left[ \overline{u}_{p_2, s_2} (\gamma^\rho) u_{p_{4}, s_{4}} \right] &= \text{Tr}\qty(\gamma^\nu(p_{\lambda, 4} \gamma^\lambda + M) \gamma^\rho (p_{\xi, 2} \gamma^\xi + M))\nonumber\\
+        &=  p_{\lambda, 4}p_{\xi, 2} \text{Tr}\qty(\gamma^\nu\gamma^\lambda \gamma^\rho \gamma^\xi) + M p_{\lambda, 4} \text{Tr}\qty(\gamma^\nu \gamma^\lambda \gamma^\rho) + M p_{\xi, 2} \text{Tr}\qty(\gamma^\nu \gamma^\rho \gamma^\xi) + M^2 \text{Tr}\qty(\gamma^\nu \gamma^\rho) \nonumber\\
+        &= p_{\lambda, 4}p_{\xi, 2} \text{Tr}\qty(\gamma^\nu\gamma^\lambda \gamma^\rho \gamma^\xi) + M^2 \text{Tr}\qty(\gamma^\nu \gamma^\rho) \nonumber\\
+        &= 4 p_{\lambda, 4}p_{\xi, 2} \left(g^{\nu \lambda} g^{\rho \xi}-g^{\nu \rho} g^{\lambda \xi}+g^{\nu \xi} g^{\rho \lambda}\right) + 4 M^2 g^{\nu \rho}\label{sum24}
+    \end{align}
+    Comme le résultat \eqref{sum24} est multiple de l'identité, il peut être extrait de la somme \eqref{Amp2}. On peut maintenant calculer la somme restante sur $s_1$, $s_3$ comme suit:
+    \begin{align}
+        \sum_{s_1, s_{3}}  \left[ \overline{u}_{p_3, s_3} (\gamma^\mu) u_{p_1, s_1} \right]  \left[ \overline{u}_{p_1, s_1} (\gamma^\sigma) u_{p_{3}, s_{3}} \right] &= \text{Tr}\qty(\gamma^\mu(p_{\lambda', 3} \gamma^{\lambda'} + m) \gamma^\sigma (p_{\xi', 1} \gamma^{\xi'} + m))\nonumber\\
+        &=  p_{\lambda', 3}p_{\xi', 1} \text{Tr}\qty(\gamma^\mu\gamma^{\lambda'} \gamma^\sigma \gamma^{\xi'}) + m p_{\lambda', 3} \text{Tr}\qty(\gamma^\mu \gamma^{\lambda'} \gamma^\sigma) + m p_{\xi', 1} \text{Tr}\qty(\gamma^\mu \gamma^\sigma \gamma^{\xi'}) + m^2 \text{Tr}\qty(\gamma^\mu \gamma^\sigma)\nonumber\\
+        &= p_{\lambda', 3}p_{\xi', 1} \text{Tr}\qty(\gamma^\mu\gamma^{\lambda'} \gamma^\sigma \gamma^{\xi'}) + m^2 \text{Tr}\qty(\gamma^\mu \gamma^\sigma) \nonumber\\
+        &= 4 p_{\lambda', 3}p_{\xi', 1} \left(g^{\mu \lambda'} g^{\sigma \xi}-g^{\mu \sigma} g^{\lambda' \xi'}+g^{\mu \xi'} g^{\sigma \lambda'}\right) + 4 m^2 g^{\mu \sigma}.\label{sum13}
+    \end{align}
+    En combinant \eqref{sum24} et \eqref{sum13}, \eqref{Amp2} devient 
+    \begin{align}
+        |\mathcal{M}|_{\text{tot}}^2 
+        &= 4\left[\dfrac{\pi \alpha }{(p_1 - p_3)^2}\right]^2   \nonumber \\
+        &\times g_{\mu \nu}\qty(4 p_{\lambda, 4}p_{\xi, 2} \left(g^{\nu \lambda} g^{\rho \xi}-g^{\nu \rho} g^{\lambda \xi}+g^{\nu \xi} g^{\rho \lambda}\right) + 4 M^2 g^{\nu \rho})\nonumber\\&\times g_{\sigma \rho}\qty(4 p_{\lambda', 3}p_{\xi', 1} \left(g^{\mu \lambda'} g^{\sigma \xi}-g^{\mu \sigma} g^{\lambda' \xi'}+g^{\mu \xi'} g^{\sigma \lambda'}\right) + 4 m^2 g^{\mu \sigma})\nonumber\\
+        &= 4^3\left[\dfrac{\pi \alpha }{(p_1 - p_3)^2}\right]^2 \qty( p_{\lambda, 4}p_{\xi, 2} \left(\delta_{\mu}^{\lambda} g^{\rho \xi}-\delta_{\mu}^{\rho} g^{\lambda \xi}+\delta_{\mu}^{\xi} g^{\rho \lambda}\right) + M^2 \delta_{\mu}^{\rho})\times \qty(p_{\lambda', 3}p_{\xi', 1} \left(g^{\mu \lambda'} \delta_{\rho}^{\xi'}-\delta_{\rho}^{\mu} g^{\lambda' \xi'}+g^{\mu \xi'} \delta_{\rho}^{\lambda'}\right) + m^2 \delta_{\rho}^{\mu}) \nonumber\\
+        &= 4^3\left[\dfrac{\pi \alpha}{(p_1 - p_3)^2}\right]^2 \qty( p_{\mu, 4}p_{2}^\rho -\delta_{\mu}^{\rho} p_{4} \cdot p_{2}+p_{4}^\rho p_{\mu, 2} +  M^2 \delta_{\mu}^{\rho})\times \qty(p_{3}^\mu p_{\rho, 1} -p_{3} \cdot p_{1}\delta_{\rho}^{\mu} + p_{\rho, 3}p_{1}^{\mu} +  m^2 \delta_{\rho}^{\mu})\nonumber\\
+        &= 4^3\left[\dfrac{\pi \alpha}{(p_1 - p_3)^2}\right]^2 
+        \nonumber\big( 
+        %
+        \textcolor{red}{(p_{4} \cdot p_3) (p_{2}\cdot p_1)} - \textcolor{green}{(p_{3} \cdot p_{1})(p_2 \cdot p_4)}+  \textcolor{blue}{(p_2 \cdot p_3)(p_1 \cdot p_4)} +  m^2 (p_2 \cdot p_4)\nonumber\\&
+        %
+        \hspace{2.6cm}-\textcolor{green}{(p_{4} \cdot p_{2}) (p_{3} \cdot p_{1})}  + 4\textcolor{green}{(p_{4} \cdot p_{2})(p_{3} \cdot p_{1})}-\textcolor{green}{(p_{4} \cdot p_{2})(p_{3}\cdot p_{1})} -  4m^2 (p_{4} \cdot p_{2})\nonumber\\
+        %
+        &\hspace{2.6cm}+\textcolor{blue}{(p_4 \cdot p_1) (p_2 \cdot p_3)}  -\textcolor{green}{(p_{4} \cdot p_{2}) (p_3\cdot p_{1})} + \textcolor{red}{(p_{4}\cdot p_3) (p_{2} \cdot p_{1})} + m^2 (p_{4} \cdot p_{2} )\nonumber\\ 
+        %
+        &\hspace{2.6cm}+M^2 (p_{3}\cdot p_{1}) -4M^2 (p_{3} \cdot p_{1}) +M^2 (p_{3} \cdot p_{1}) +4  M^2 m^2\big)\nonumber\\
+        & = 8\left[\dfrac{4 \pi \alpha}{(p_1 - p_3)^2}\right]^2 \left((p_{4} \cdot p_3) (p_{2}\cdot p_1) + (p_2 \cdot p_3)(p_1 \cdot p_4)  - m^2 (p_2 \cdot p_4) - M^2(p_1 \cdot p_3) + 2 m^2 M^2 \right).  \label{Amp3}
+    \end{align} 
+    \item On se place maintenant dans le référenciel où le muon est au repos. On suppose que sa masse $M$ est grande en comparaison avec l'énergie $E$ d'un électron incident et on néglige le transfert d'énergie de l'électron au muon ($E \ll M$). Cela se traduit par $p_2 = p_4 = (M, \mathbf{0})$, $p_1 = (E, \mathbf{p}_1)$ et $p_3 = (E, \mathbf{p}_3)$ avec $|\mathbf{p}_1| =  |\mathbf{p}_3|$ où $E$, $\mathbf{p}_1$ et $\mathbf{p}_3$ sont respectivement l'énergie conservée de l'électron, sa quantité de mouvement initiale et sa quantité de mouvement finale. Dans le référentiel du muon, la section efficace différentielle de diffusion de l'électron incident est approximativement donnée par 
+    \begin{align}
+        \frac{\mathrm{d} \sigma}{\mathrm{d} \Omega}=\frac{1}{(8 \pi)^2} \frac{|\mathbf{p}_3|^2|\mathcal{M}|_{\text{tot}}^2}{M\left|\mathbf{p}_1\right|\left(\left|\mathbf{p}_3\right|\left(E+M\right)-\left|\mathbf{p}_1\right| E \cos \theta\right)} \underbrace{\approx}_{|\mathbf{p}_1| = |\mathbf{p}_3|} \frac{1}{(8 \pi)^2} \frac{|\mathcal{M}|_{\text{tot}}^2}{M\left(E(1- \cos \theta) + M\right)} \underbrace{\approx}_{E \ll M} \frac{1}{(8 \pi)^2 M^2} |\mathcal{M}|_{\text{tot}}^2 \label{section}
+    \end{align}
+    où $\theta$ représente l'angle formé entre $\mathbf{p}_1$ et $\mathbf{p}_3$. 
+    Pour préciser \eqref{section}, il suffit d'évaluer \eqref{Amp3} pour les quadri-impulsions spécifiques à la situation considérée. On a les éléments suivants: 
+    \begin{align}
+        &(p_1 -  p_3)^2 = (E-E, \mathbf{p}_1 - \mathbf{p}_3)^2 = - |\mathbf{p}_1 - \mathbf{p}_3|^2 = -|\mathbf{p}_1|^2 - |\mathbf{p}_3|^2 + 2 |\mathbf{p}_1||\mathbf{p}_3|\cos(\theta) = -4|\mathbf{p}_1|^2 \dfrac{1 - \cos(\theta)}{2} = -4|\mathbf{p}_1|^2 \sin^2(\theta/2),\nonumber\\
+        &(p_4 \cdot p_2) = (M, 0) \cdot (M, 0) = M^2, \quad (p_3 \cdot p_1) = (E, \mathbf{p}_3) \cdot (E, \mathbf{p}_1) = E^2 - |\mathbf{p}_3||\mathbf{p}_1| \cos(\theta) = E^2 (1 - \beta^2 \cos(\theta)),
+        \nonumber\\
+        &\textcolor{red}{(p_4 \cdot p_3)(p_2 \cdot p_1)} =  ((M, 0) \cdot (E, \mathbf{p}_3))((M, 0) \cdot (E, \mathbf{p}_1))= (EM)^2, \nonumber\\
+        &\textcolor{blue}{(p_4 \cdot p_1)(p_3 \cdot p_2)} =  ((M, 0) \cdot (E, \mathbf{p}_1))((E, \mathbf{p}_3) \cdot (M, 0))= (EM)^2\label{elem}
+    \end{align}
+    où $\beta = |\mathbf{p}_1|/E$ est la grandeur de la vitesse de l'electron dans le référenciel du muon.  En injectant les expressions \eqref{elem} dans \eqref{Amp3}, on trouve 
+    \begin{align}
+        |\mathcal{M}|_{\text{tot}}^2 &= 8\left[\dfrac{4 \pi \alpha}{(p_1 - p_3)^2}\right]^2 \left((EM)^2+(EM)^2 - m^2 M^2 - (EM)^2 (1 - \beta^2 \cos(\theta)) + 2 m^2 M^2 \right)\nonumber\\
+        &= 8(EM)^2\left[\dfrac{4 \pi \alpha}{-4|\mathbf{p}_1|^2 \sin^2(\theta/2)}\right]^2 \left(2 - 1 + \beta^2 \cos(\theta) + 1-\beta^2\right)\nonumber\\
+        &= 8(EM)^2\dfrac{\pi^2 \alpha^2}{|\mathbf{p}_1|^4 \sin^4(\theta/2)} \left(2 - 2 \beta^2 \dfrac{1- \cos(\theta)}{2}\right)= (EM)^2\dfrac{(4\pi)^2 \alpha^2}{|\mathbf{p}_1|^4 \sin^4(\theta/2)} \left(1 - \beta^2 \sin(\theta/2)\right) \label{mtot}
+    \end{align}
+    où on a utilisé $m^2 = E^2 - |\mathbf{p}_2|^2 = E^2(1-\beta^2)$. Finalement, la combinaison de \eqref{mtot} à \eqref{section} donne la section différentielle de diffusion 
+    \begin{align}
+        \frac{\mathrm{d} \sigma}{\mathrm{d} \Omega} = \frac{E^2\alpha^2}{4 |\mathbf{p}_1|^4 \sin^4(\theta/2)}\left(1 - \beta^2 \sin(\theta/2)\right).
+    \end{align}
+\end{alphaparts}
+}
